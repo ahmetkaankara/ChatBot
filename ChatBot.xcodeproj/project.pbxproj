@@ -8,17 +8,32 @@
 
 /* Begin PBXBuildFile section */
 		33A14A1F2A1669C900183BD5 /* ChatBotApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33A14A1E2A1669C900183BD5 /* ChatBotApp.swift */; };
-		33A14A212A1669C900183BD5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33A14A202A1669C900183BD5 /* ContentView.swift */; };
 		33A14A232A1669CA00183BD5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 33A14A222A1669CA00183BD5 /* Assets.xcassets */; };
 		33A14A262A1669CA00183BD5 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 33A14A252A1669CA00183BD5 /* Preview Assets.xcassets */; };
+		33A14A352A166D1500183BD5 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33A14A342A166D1500183BD5 /* Constants.swift */; };
+		33A14A372A166EA100183BD5 /* PersonSelectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33A14A362A166EA100183BD5 /* PersonSelectView.swift */; };
+		33A14A3A2A168E1400183BD5 /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33A14A392A168E1400183BD5 /* ChatView.swift */; };
+		33A14A3C2A168E1E00183BD5 /* ChatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33A14A3B2A168E1E00183BD5 /* ChatViewModel.swift */; };
+		33A14A3E2A168E3100183BD5 /* OpenAIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33A14A3D2A168E3100183BD5 /* OpenAIService.swift */; };
+		33A14A402A168E7900183BD5 /* MessageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33A14A3F2A168E7900183BD5 /* MessageModel.swift */; };
+		33A14A432A168FBC00183BD5 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 33A14A422A168FBC00183BD5 /* Alamofire */; };
+		33A14A472A16904E00183BD5 /* OpenAIModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33A14A462A16904E00183BD5 /* OpenAIModels.swift */; };
+		33A14A4A2A16983000183BD5 /* ChatCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33A14A492A16983000183BD5 /* ChatCellView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		33A14A1B2A1669C900183BD5 /* ChatBot.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChatBot.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		33A14A1E2A1669C900183BD5 /* ChatBotApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatBotApp.swift; sourceTree = "<group>"; };
-		33A14A202A1669C900183BD5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		33A14A222A1669CA00183BD5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		33A14A252A1669CA00183BD5 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		33A14A342A166D1500183BD5 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		33A14A362A166EA100183BD5 /* PersonSelectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonSelectView.swift; sourceTree = "<group>"; };
+		33A14A392A168E1400183BD5 /* ChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatView.swift; sourceTree = "<group>"; };
+		33A14A3B2A168E1E00183BD5 /* ChatViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewModel.swift; sourceTree = "<group>"; };
+		33A14A3D2A168E3100183BD5 /* OpenAIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenAIService.swift; sourceTree = "<group>"; };
+		33A14A3F2A168E7900183BD5 /* MessageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageModel.swift; sourceTree = "<group>"; };
+		33A14A462A16904E00183BD5 /* OpenAIModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenAIModels.swift; sourceTree = "<group>"; };
+		33A14A492A16983000183BD5 /* ChatCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatCellView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -26,6 +41,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				33A14A432A168FBC00183BD5 /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -51,8 +67,12 @@
 		33A14A1D2A1669C900183BD5 /* ChatBot */ = {
 			isa = PBXGroup;
 			children = (
-				33A14A1E2A1669C900183BD5 /* ChatBotApp.swift */,
-				33A14A202A1669C900183BD5 /* ContentView.swift */,
+				33A14A382A16718B00183BD5 /* Helpers */,
+				33A14A312A166B7700183BD5 /* Services */,
+				33A14A2F2A166B4100183BD5 /* Models */,
+				33A14A2D2A166B2B00183BD5 /* ViewModels */,
+				33A14A2C2A166B2200183BD5 /* Views */,
+				33A14A302A166B4D00183BD5 /* Others */,
 				33A14A222A1669CA00183BD5 /* Assets.xcassets */,
 				33A14A242A1669CA00183BD5 /* Preview Content */,
 			);
@@ -65,6 +85,73 @@
 				33A14A252A1669CA00183BD5 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		33A14A2C2A166B2200183BD5 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				33A14A4C2A16984C00183BD5 /* PersonSelectView */,
+				33A14A482A16981E00183BD5 /* ChatView */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		33A14A2D2A166B2B00183BD5 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				33A14A3B2A168E1E00183BD5 /* ChatViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		33A14A2F2A166B4100183BD5 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				33A14A3F2A168E7900183BD5 /* MessageModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		33A14A302A166B4D00183BD5 /* Others */ = {
+			isa = PBXGroup;
+			children = (
+				33A14A1E2A1669C900183BD5 /* ChatBotApp.swift */,
+				33A14A342A166D1500183BD5 /* Constants.swift */,
+			);
+			path = Others;
+			sourceTree = "<group>";
+		};
+		33A14A312A166B7700183BD5 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				33A14A3D2A168E3100183BD5 /* OpenAIService.swift */,
+				33A14A462A16904E00183BD5 /* OpenAIModels.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		33A14A382A16718B00183BD5 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		33A14A482A16981E00183BD5 /* ChatView */ = {
+			isa = PBXGroup;
+			children = (
+				33A14A392A168E1400183BD5 /* ChatView.swift */,
+				33A14A492A16983000183BD5 /* ChatCellView.swift */,
+			);
+			path = ChatView;
+			sourceTree = "<group>";
+		};
+		33A14A4C2A16984C00183BD5 /* PersonSelectView */ = {
+			isa = PBXGroup;
+			children = (
+				33A14A362A166EA100183BD5 /* PersonSelectView.swift */,
+			);
+			path = PersonSelectView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -83,6 +170,9 @@
 			dependencies = (
 			);
 			name = ChatBot;
+			packageProductDependencies = (
+				33A14A422A168FBC00183BD5 /* Alamofire */,
+			);
 			productName = ChatBot;
 			productReference = 33A14A1B2A1669C900183BD5 /* ChatBot.app */;
 			productType = "com.apple.product-type.application";
@@ -111,6 +201,9 @@
 				Base,
 			);
 			mainGroup = 33A14A122A1669C900183BD5;
+			packageReferences = (
+				33A14A412A168FBC00183BD5 /* XCRemoteSwiftPackageReference "Alamofire" */,
+			);
 			productRefGroup = 33A14A1C2A1669C900183BD5 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -137,8 +230,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				33A14A212A1669C900183BD5 /* ContentView.swift in Sources */,
+				33A14A3E2A168E3100183BD5 /* OpenAIService.swift in Sources */,
 				33A14A1F2A1669C900183BD5 /* ChatBotApp.swift in Sources */,
+				33A14A402A168E7900183BD5 /* MessageModel.swift in Sources */,
+				33A14A3A2A168E1400183BD5 /* ChatView.swift in Sources */,
+				33A14A352A166D1500183BD5 /* Constants.swift in Sources */,
+				33A14A3C2A168E1E00183BD5 /* ChatViewModel.swift in Sources */,
+				33A14A372A166EA100183BD5 /* PersonSelectView.swift in Sources */,
+				33A14A4A2A16983000183BD5 /* ChatCellView.swift in Sources */,
+				33A14A472A16904E00183BD5 /* OpenAIModels.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -339,6 +439,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		33A14A412A168FBC00183BD5 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		33A14A422A168FBC00183BD5 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 33A14A412A168FBC00183BD5 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 33A14A132A1669C900183BD5 /* Project object */;
 }
