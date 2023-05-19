@@ -9,40 +9,64 @@ import SwiftUI
 
 struct ChatView: View {
     
-    @ObservedObject private var chatViewModel = ChatViewModel()
+    @StateObject private var chatViewModel = ChatViewModel()
     let selectedPerson:SelectedPerson
-    
-    
+        
     var body: some View {
         VStack{
-            ScrollView(showsIndicators: false) {
-                ForEach(chatViewModel.messages,id:\.id) { message in
-                    ChatCellView(message: message)
-                }
-            }
-            VStack{
-                Spacer()
-                HStack{
-                    TextField("Enter Your Text", text: $chatViewModel.userInput)
-                    Button {
-                        chatViewModel.sendMessage()
-                    } label: {
-                        HStack{
-                            Text("Send")
-                            Image(systemName: "paperplane.fill")
+            ScrollViewReader { proxy in
+                ScrollView(showsIndicators: false) {
+                    VStack{
+                        ForEach(chatViewModel.messages.dropFirst(),id:\.id) { message in
+                            ChatCellView(message: message)
+                        }
+                        if chatViewModel.waitingForResponse {
+                            ChatCellView(message: Message(id: UUID(), role: .assistant, content: "Typing...", createDate: Date()))
+                            HStack{
+                                Text("Typing")
+                            }
+                        }
+                        HStack{ Spacer() }.id("Empty")
+
+                    }
+                    .onChange(of: chatViewModel.messages.count, perform: { newValue in
+                        withAnimation(.easeOut(duration: 0.5)) {
+                            proxy.scrollTo("Empty",anchor: .bottom)
+
                         }
 
-                        .foregroundColor(.blue)
-                    }
+                    })
+//                    .onReceive($chatViewModel.messages.count) { _ in
+//                        proxy.scrollTo("Empty",anchor: .bottom)
+//                    }
 
                 }
-                .padding()
-                .background{
-                    RoundedRectangle(cornerRadius: 20).stroke(.blue,lineWidth: 2)
-                }
-                
+
 
             }
+            HStack{
+                TextField("Enter Your Text", text: $chatViewModel.userInput)
+                Button {
+                    chatViewModel.sendMessage()
+                } label: {
+                    HStack{
+                        Text("Send")
+                        Image(systemName: "paperplane.fill")
+                    }
+                    
+                    .foregroundColor(.blue)
+                }
+                
+            }
+            .padding()
+            .background{
+                RoundedRectangle(cornerRadius: 20).stroke(.blue,lineWidth: 2)
+            }
+            
+            
+        }
+        .onAppear{
+            chatViewModel.setupPerson(selectedPerson: selectedPerson)
         }
         .padding()
     }
