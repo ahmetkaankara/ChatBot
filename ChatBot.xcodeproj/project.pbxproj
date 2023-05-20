@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		336492DC2A18E6D900012E5F /* TypingIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 336492DB2A18E6D900012E5F /* TypingIndicatorView.swift */; };
+		336492DF2A18FF4800012E5F /* OnBoardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 336492DE2A18FF4700012E5F /* OnBoardingView.swift */; };
+		336492E12A18FFC700012E5F /* FirstOnBoardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 336492E02A18FFC700012E5F /* FirstOnBoardingView.swift */; };
+		336492E32A18FFDC00012E5F /* SecondOnBoardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 336492E22A18FFDC00012E5F /* SecondOnBoardingView.swift */; };
+		336492E52A19061100012E5F /* LastOnBoardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 336492E42A19061100012E5F /* LastOnBoardingView.swift */; };
 		33A14A1F2A1669C900183BD5 /* ChatBotApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33A14A1E2A1669C900183BD5 /* ChatBotApp.swift */; };
 		33A14A232A1669CA00183BD5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 33A14A222A1669CA00183BD5 /* Assets.xcassets */; };
 		33A14A262A1669CA00183BD5 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 33A14A252A1669CA00183BD5 /* Preview Assets.xcassets */; };
@@ -22,6 +27,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		336492DB2A18E6D900012E5F /* TypingIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypingIndicatorView.swift; sourceTree = "<group>"; };
+		336492DE2A18FF4700012E5F /* OnBoardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingView.swift; sourceTree = "<group>"; };
+		336492E02A18FFC700012E5F /* FirstOnBoardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstOnBoardingView.swift; sourceTree = "<group>"; };
+		336492E22A18FFDC00012E5F /* SecondOnBoardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondOnBoardingView.swift; sourceTree = "<group>"; };
+		336492E42A19061100012E5F /* LastOnBoardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastOnBoardingView.swift; sourceTree = "<group>"; };
 		33A14A1B2A1669C900183BD5 /* ChatBot.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChatBot.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		33A14A1E2A1669C900183BD5 /* ChatBotApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatBotApp.swift; sourceTree = "<group>"; };
 		33A14A222A1669CA00183BD5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -48,6 +58,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		336492D82A18E68F00012E5F /* SubViews */ = {
+			isa = PBXGroup;
+			children = (
+				336492DB2A18E6D900012E5F /* TypingIndicatorView.swift */,
+			);
+			path = SubViews;
+			sourceTree = "<group>";
+		};
+		336492DD2A18FF2700012E5F /* OnboardingView */ = {
+			isa = PBXGroup;
+			children = (
+				336492DE2A18FF4700012E5F /* OnBoardingView.swift */,
+				336492E02A18FFC700012E5F /* FirstOnBoardingView.swift */,
+				336492E22A18FFDC00012E5F /* SecondOnBoardingView.swift */,
+				336492E42A19061100012E5F /* LastOnBoardingView.swift */,
+			);
+			path = OnboardingView;
+			sourceTree = "<group>";
+		};
 		33A14A122A1669C900183BD5 = {
 			isa = PBXGroup;
 			children = (
@@ -90,6 +119,7 @@
 		33A14A2C2A166B2200183BD5 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				336492DD2A18FF2700012E5F /* OnboardingView */,
 				33A14A4C2A16984C00183BD5 /* PersonSelectView */,
 				33A14A482A16981E00183BD5 /* ChatView */,
 			);
@@ -107,6 +137,7 @@
 		33A14A2F2A166B4100183BD5 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				33A14A462A16904E00183BD5 /* OpenAIModels.swift */,
 				33A14A3F2A168E7900183BD5 /* MessageModel.swift */,
 			);
 			path = Models;
@@ -125,7 +156,6 @@
 			isa = PBXGroup;
 			children = (
 				33A14A3D2A168E3100183BD5 /* OpenAIService.swift */,
-				33A14A462A16904E00183BD5 /* OpenAIModels.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -133,6 +163,7 @@
 		33A14A382A16718B00183BD5 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				336492D82A18E68F00012E5F /* SubViews */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -231,12 +262,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				33A14A3E2A168E3100183BD5 /* OpenAIService.swift in Sources */,
+				336492E52A19061100012E5F /* LastOnBoardingView.swift in Sources */,
 				33A14A1F2A1669C900183BD5 /* ChatBotApp.swift in Sources */,
+				336492E32A18FFDC00012E5F /* SecondOnBoardingView.swift in Sources */,
+				336492E12A18FFC700012E5F /* FirstOnBoardingView.swift in Sources */,
 				33A14A402A168E7900183BD5 /* MessageModel.swift in Sources */,
 				33A14A3A2A168E1400183BD5 /* ChatView.swift in Sources */,
 				33A14A352A166D1500183BD5 /* Constants.swift in Sources */,
+				336492DF2A18FF4800012E5F /* OnBoardingView.swift in Sources */,
 				33A14A3C2A168E1E00183BD5 /* ChatViewModel.swift in Sources */,
 				33A14A372A166EA100183BD5 /* PersonSelectView.swift in Sources */,
+				336492DC2A18E6D900012E5F /* TypingIndicatorView.swift in Sources */,
 				33A14A4A2A16983000183BD5 /* ChatCellView.swift in Sources */,
 				33A14A472A16904E00183BD5 /* OpenAIModels.swift in Sources */,
 			);

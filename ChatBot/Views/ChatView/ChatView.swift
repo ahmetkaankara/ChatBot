@@ -11,39 +11,34 @@ struct ChatView: View {
     
     @StateObject private var chatViewModel = ChatViewModel()
     let selectedPerson:SelectedPerson
-        
+    
     var body: some View {
         VStack{
             ScrollViewReader { proxy in
                 ScrollView(showsIndicators: false) {
                     VStack{
                         ForEach(chatViewModel.messages.dropFirst(),id:\.id) { message in
-                            ChatCellView(message: message)
+                            ChatCellView(message: message,selectedPerson: selectedPerson)
                         }
                         if chatViewModel.waitingForResponse {
-                            ChatCellView(message: Message(id: UUID(), role: .assistant, content: "Typing...", createDate: Date()))
-                            HStack{
-                                Text("Typing")
-                            }
+                            TypingIndicatorView()
                         }
                         HStack{ Spacer() }.id("Empty")
-
+                        
                     }
                     .onChange(of: chatViewModel.messages.count, perform: { newValue in
                         withAnimation(.easeOut(duration: 0.5)) {
                             proxy.scrollTo("Empty",anchor: .bottom)
-
+                            
                         }
-
+                        
                     })
-//                    .onReceive($chatViewModel.messages.count) { _ in
-//                        proxy.scrollTo("Empty",anchor: .bottom)
-//                    }
-
+                    
                 }
-
-
+                
+                
             }
+            Divider()
             HStack{
                 TextField("Enter Your Text", text: $chatViewModel.userInput)
                 Button {
@@ -59,10 +54,6 @@ struct ChatView: View {
                 
             }
             .padding()
-            .background{
-                RoundedRectangle(cornerRadius: 20).stroke(.blue,lineWidth: 2)
-            }
-            
             
         }
         .onAppear{

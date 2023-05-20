@@ -16,17 +16,18 @@ enum SelectedPerson {
 }
 
 struct PersonSelectView: View {
-
+    
+    private var defaults = UserDefaults.standard
 
     @State var selectedPerson:SelectedPerson = .einstein
     @State var navigateToChatView = false
-
+    @State var shouldShowOnBoarding:Bool = false
     var body: some View {
         
         
         NavigationView {
             VStack{
-                Text("Welcome To ChatBotApp")
+                Text("Welcome To ChatBot App")
                     .font(.largeTitle)
                     .bold()
                 Spacer()
@@ -48,7 +49,7 @@ struct PersonSelectView: View {
                                 selectedPerson = .einstein
                             }
                         
-                        Image("einstein")
+                        Image("edison")
                             .resizable()
                             .scaledToFit()
                             .frame(width:100,height: 100)
@@ -63,7 +64,7 @@ struct PersonSelectView: View {
                             }
                     }
                     HStack{
-                        Image("einstein")
+                        Image("elon")
                             .resizable()
                             .scaledToFit()
                             .frame(width:100,height: 100)
@@ -76,7 +77,7 @@ struct PersonSelectView: View {
                             .onTapGesture {
                                 selectedPerson = .elon
                             }
-                        Image("einstein")
+                        Image("nikola-tesla")
                             .resizable()
                             .scaledToFit()
                             .frame(width:100,height: 100)
@@ -115,6 +116,15 @@ struct PersonSelectView: View {
             .padding()
 
         }
+        .onAppear{
+            if defaults.bool(forKey: "isFirstTimeLaunch"){
+                defaults.set(false, forKey: "isFirstTimeLaunch")
+                shouldShowOnBoarding = true
+            }
+        }
+        .fullScreenCover(isPresented: $shouldShowOnBoarding, content: {
+            OnBoardingView(shouldShowOnboarding: $shouldShowOnBoarding)
+        })
 
     }
 }

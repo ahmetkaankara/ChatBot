@@ -10,24 +10,45 @@ import SwiftUI
 struct ChatCellView: View {
     
     let message:Message
+    let selectedPerson:SelectedPerson
+    
+    var personNameForImage:String {
+        switch selectedPerson {
+        case .einstein:
+            return "einstein"
+        case .edison:
+            return "edison"
+        case .elon:
+            return "elon"
+        case .tesla:
+            return "nikola-tesla"
+        }
+    }
+    
+
     
     var body: some View {
         VStack{
-            HStack{
+            HStack(alignment: .top){
                 if message.role == .user {
                     Spacer()
                 }
                 if message.role == .assistant{
-                    Image("einstein")
+                    
+                    Image(personNameForImage)
                         .resizable()
                         .scaledToFit()
                         .frame(width: 50,height: 50)
                         .clipShape(Circle())
-                        
+                    
                 }
                 Text(message.content)
                 if message.role == .user {
-                    Image(systemName: "person")
+                    Image("user-profile-photo")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 50,height: 50)
+                        .clipShape(Circle())
                 }
                 if message.role == .assistant{
                     Spacer()
@@ -37,12 +58,12 @@ struct ChatCellView: View {
             Divider()
         }
         
-
+        
     }
 }
 
 struct ChatCellView_Previews: PreviewProvider {
     static var previews: some View {
-        ChatCellView(message: Message(id: UUID(), role: .assistant, content: "sa", createDate: Date()))
+        ChatCellView(message: Message(id: UUID(), role: .assistant, content: "sa", createDate: Date()), selectedPerson: .einstein)
     }
 }

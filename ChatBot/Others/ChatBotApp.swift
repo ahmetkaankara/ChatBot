@@ -9,9 +9,18 @@ import SwiftUI
 
 @main
 struct ChatBotApp: App {
+    
+    private var defaults = UserDefaults.standard
+    
     var body: some Scene {
         WindowGroup {
             PersonSelectView()
+        }
+    }
+    
+    init(){
+        if defaults.value(forKey: "isFirstTimeLaunch") == nil{
+            defaults.set(true, forKey: "isFirstTimeLaunch")
         }
     }
 }
